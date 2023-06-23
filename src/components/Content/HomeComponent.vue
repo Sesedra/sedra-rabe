@@ -1,18 +1,39 @@
 <template>
-    <div class="home-page" id="home">
-        <div class="hero">
-            <!-- <h1>Tongasoa, je suis Sedra Rabe</h1> -->
-        <p v-scroll-reveal.reset>Transformer les idées en produits web et mobiles innovants avec une touche de design</p>
-        <div class="hero-buttons">
-            <button id="contacter" v-wave="{ color: 'gray' }">Me contacter</button>
-            <button id="cv" v-wave="{ color: 'gray' }"><img :src="require('@/assets/prime_download.svg')">Consulter mon CV</button>
-        </div>
+  <div class="home-page" id="home">
+    <div class="hero">
+      <p v-scroll-reveal.reset>Transformer les idées en produits web et mobiles innovants avec une touche de design</p>
+      <div class="hero-buttons">
+        <button id="contacter" v-wave="{ color: 'gray' }">Me contacter</button>
+        <button id="cv" v-wave="{ color: 'gray' }" @click="downloadCV">
+          <img :src="require('@/assets/prime_download.svg')">
+          Consulter mon CV
+        </button>
+      </div>
     </div>
     <div class="bg">
       <img :src="require('@/assets/sary.svg')">
     </div>
   </div>
-  </template>
+</template>
+
+<script>
+export default {
+  methods: {
+    downloadCV() {
+      const fileURL = require("@/assets/CV_Sedra_Rabe.pdf"); // Chemin du fichier CV
+      const link = document.createElement("a");
+      link.href = fileURL;
+      link.setAttribute("download", "CV_Sedra_Rabe.pdf"); // Nom du fichier à télécharger
+      link.style.display = "none";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
+}
+</script>
+
+
   
   <style scoped>
     .home-page {
