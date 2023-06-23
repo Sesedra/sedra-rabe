@@ -61,27 +61,27 @@ export default {
           projectLink: 'https://example.com/recycleo',
         },
 
-        {
-          title: 'tysynday',
-          logo: require('@/assets/tysynday.svg'),
-          littleTitle: 'Tysynday',
-          littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
-          description:
-            'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
-          tools: ['Figma', 'Laravel'],
-          projectLink: 'https://example.com/recycleo',
-        },
+        // {
+        //   title: 'tysynday',
+        //   logo: require('@/assets/tysynday.svg'),
+        //   littleTitle: 'Tysynday',
+        //   littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
+        //   description:
+        //     'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
+        //   tools: ['Figma', 'Laravel'],
+        //   projectLink: 'https://example.com/recycleo',
+        // },
 
-        {
-          title: 'Rakoto.dev',
-          logo: require('@/assets/Rakoto.dev.svg'),
-          littleTitle: 'Rakoto.dev',
-          littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
-          description:
-            'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
-          tools: ['Figma', 'Laravel'],
-          projectLink: 'https://example.com/recycleo',
-        },
+        // {
+        //   title: 'Rakoto.dev',
+        //   logo: require('@/assets/Rakoto.dev.svg'),
+        //   littleTitle: 'Rakoto.dev',
+        //   littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
+        //   description:
+        //     'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
+        //   tools: ['Figma', 'Laravel'],
+        //   projectLink: 'https://example.com/recycleo',
+        // },
         // Ajoutez d'autres objets de carte si nécessaire
       ],
     };
