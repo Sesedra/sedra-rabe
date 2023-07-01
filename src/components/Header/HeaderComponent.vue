@@ -13,7 +13,10 @@
           <a href="#" @click="scrollToSection('#projets')">Mes projets</a>
           <a href="#" @click="scrollToSection('#contact')">Me contacter</a>
         </div>
+        
       </div>
+      <h3 style="color: red;">⚠️Ce site est toujours en cours de construction, on y est presque 👷 </h3>
+
     </div>
   </div>
 </template>

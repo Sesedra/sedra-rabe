@@ -2,6 +2,7 @@
     <div class="info-page">
         <div class="hero"  id="contact">
           <div class="header">
+            <h3 style="color: red;"> ⚠️ Travaux en cours ⚠️ </h3>
             <h3>Des idées de projet?</h3>
             <h1>Parlons-en</h1>
           </div>

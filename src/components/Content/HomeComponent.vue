@@ -22,18 +22,6 @@ import VueScrollTo from 'vue-scrollto';
 
 
 export default {
-  // methods: {
-  //   downloadCV() {
-  //     const fileURL = require("@/assets/CV_Sedra_Rabe.pdf"); // Chemin du fichier CV
-  //     const link = document.createElement("a");
-  //     link.href = fileURL;
-  //     link.setAttribute("download", "CV_Sedra_Rabe.pdf"); // Nom du fichier à télécharger
-  //     link.style.display = "none";
-  //     document.body.appendChild(link);
-  //     link.click();
-  //     document.body.removeChild(link);
-  //   }
-  // }
   methods: {
     async downloadCV() {
       try {
