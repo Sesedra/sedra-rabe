@@ -3,8 +3,7 @@
     <div class="list-content">
       <div class="list-item" v-for="item in list" :key="item">
         <div class="list-item-content">
-          <div class="list-item-content-icon">
-            <!-- Remplacez le texte par l'icône SVG ou l'image -->
+          <div class="list-item-content-icon">            <!-- Remplacez le texte par l'icône SVG ou l'image -->
             <img :src="getLogoPath(item)" alt="Logo" class="logo-image" />
           </div>
         </div>

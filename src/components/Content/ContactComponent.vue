@@ -6,13 +6,14 @@
             <h1>Parlons-en</h1>
           </div>
           <div class="hero-content">
-          <div class="card" v-for="card in cards" :key="card.title">
-            <div class="card-content">
-              <div class="card-logo">
-                <img :src="card.logo" alt="Logo" class="logo-image" />
-              </div>
-              <div class="card-title">{{ card.title }}</div>
-              <div class="card-description" v-html="card.description"></div>
+          <div class="card">
+            <div class="mail-header">
+              Votre mail
+              <input type="email" name="email" id="email">
+            </div>
+            <div class="mail-content">
+              <p>Votre message</p>
+              <textarea name="message" id="message"></textarea>
             </div>
           </div>
         </div>
@@ -126,35 +127,9 @@ export default {
       background-clip: content-box, border-box;
       box-shadow: 0px -700px 1000px 1px #242424 inset;
       display: flex;
-      flex-direction: column-reverse;
+      flex-direction: column;
       transition: box-shadow 0.2s ease-in-out;
     }
-
-    .card:nth-child(1):hover {
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('@/assets/sary1.jpg');
-    box-shadow: 0px -70px 150px 10px rgba(0, 0, 0, 0.9) inset; 
-    background-size: cover; 
-    background-position: center; 
-    border: solid 1.7px gray;
-}
-
-.card:nth-child(2):hover {
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('@/assets/345834626_189694123977920_5813998025762825325_n.png');
-    box-shadow: 0px -70px 500px 0px rgba(0, 0, 0, 0.9) inset; 
-    background-size: cover; 
-    background-position: center; 
-    border: solid 1.7px gray;
-}
-
-.card:nth-child(3):hover {
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('@/assets/IMG_2124.jpg');
-    box-shadow: 0px -50px 200px 10px rgba(0, 0, 0, 0.9) inset; 
-    background-size: cover; 
-    background-position: center; 
-    border: solid 1.7px gray;
-}
-
-
 
     .card-content {
       display: flex;

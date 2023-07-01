@@ -1,9 +1,9 @@
 <template>
   <div class="home-page" id="home">
     <div class="hero">
-      <p v-scroll-reveal.reset>Transformer les idées en produits web et mobiles innovants avec une touche de <span id="design"> design </span></p>
+      <p>Transformer les idées en produits web et mobiles innovants avec une touche de <span id="design"> design </span></p>
       <div class="hero-buttons">
-        <button id="contacter" v-wave="{ color: 'gray' }">Me contacter</button>
+        <button id="contacter" @click="scrollToSection('#contact')" v-wave="{ color: 'gray' }">Me contacter</button>
         <button id="cv" v-wave="{ color: 'gray' }" @click="downloadCV">
           <img :src="require('@/assets/prime_download.svg')">
           Consulter mon CV
@@ -17,25 +17,46 @@
 </template>
 
 <script>
+// import { saveAs } from 'file-saver';
+import VueScrollTo from 'vue-scrollto';
+
+
 export default {
+  // methods: {
+  //   downloadCV() {
+  //     const fileURL = require("@/assets/CV_Sedra_Rabe.pdf"); // Chemin du fichier CV
+  //     const link = document.createElement("a");
+  //     link.href = fileURL;
+  //     link.setAttribute("download", "CV_Sedra_Rabe.pdf"); // Nom du fichier à télécharger
+  //     link.style.display = "none";
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   }
+  // }
   methods: {
-    downloadCV() {
-      const fileURL = require("@/assets/CV_Sedra_Rabe.pdf"); // Chemin du fichier CV
-      const link = document.createElement("a");
-      link.href = fileURL;
-      link.setAttribute("download", "CV_Sedra_Rabe.pdf"); // Nom du fichier à télécharger
-      link.style.display = "none";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  }
+    async downloadCV() {
+      try {
+        const { default: fileURL } = await import('@/assets/sedra.pdf');
+        const link = document.createElement('a');
+        link.href = fileURL;
+        link.setAttribute('download', 'CV_Sedra_Rabe.pdf');
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        console.error('Erreur lors du téléchargement du CV :', error);
+      }
+    },
+    scrollToSection(sectionId) {
+      VueScrollTo.scrollTo(sectionId, 500, { easing: 'ease-in-out' });
+    },
+}
 }
 </script>
 
-
-  
-  <style scoped>
+<style scoped>
     .home-page {
       background-size: cover;
       background-position: center;
