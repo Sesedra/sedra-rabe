@@ -178,6 +178,56 @@ export default {
       color: #e9e9e9;
     }
 
+        @media (max-width: 767px) {
+          .card:nth-child(1) {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('@/assets/sary1.jpg');
+    box-shadow: 0px -70px 150px 10px rgba(0, 0, 0, 0.9) inset; 
+    background-size: cover; 
+    background-position: center; 
+    border: solid 1.7px gray;
+}
+
+.card:nth-child(2) {
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('@/assets/345834626_189694123977920_5813998025762825325_n.png');
+    box-shadow: 0px -70px 500px 0px rgba(0, 0, 0, 0.9) inset; 
+    background-size: cover; 
+    background-position: center; 
+    border: solid 1.7px gray;
+}
+
+.card:nth-child(3){
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), url('@/assets/IMG_2124.jpg');
+    box-shadow: 0px -50px 200px 10px rgba(0, 0, 0, 0.9) inset; 
+    background-size: cover; 
+    background-position: center; 
+    border: solid 1.7px gray;
+}
+
+.hero-content {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      width: 90%;
+      height: 100%;
+      gap: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .card {
+      color: #BFBFBF;
+      height: 70%;
+      width: 100%;
+      border: solid 1.7px transparent;
+      background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(145deg, #C4C4C4, #161616);
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      box-shadow: 0px -700px 1000px 1px #242424 inset;
+      display: flex;
+      flex-direction: column-reverse;
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    }
     
   </style>
   

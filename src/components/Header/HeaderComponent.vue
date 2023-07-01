@@ -110,4 +110,7 @@ import VueScrollTo from 'vue-scrollto';
 .logo {
   font-size: 35px;
   font-weight: lighter;
-}</style>
+}
+
+
+</style>

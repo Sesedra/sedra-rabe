@@ -78,15 +78,15 @@ export default {
 
 
         background: linear-gradient(92.9deg, #F5F5F5 -13.31%, #BEBEBE 75.24%, #626262 108.78%);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-background-clip: text;
-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
 
         width: 804px;
-height: 189px;
-left: calc(50% - 804px/2);
-top: 397px;
+        height: 189px;
+        left: calc(50% - 804px/2);
+        top: 397px;
     }
 
     /* #design {
@@ -183,6 +183,8 @@ top: 397px;
       z-index:-1;
       background-color: #161616
     }
+
+
 
   </style>
   
