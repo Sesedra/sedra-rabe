@@ -5,7 +5,6 @@
         <div class="list-item" >
           <div class="list-item-content" v-for="item in list" :key="item">
             <div class="list-item-content-icon">
-              <!-- Remplacez le texte par l'icône SVG ou l'image -->
               <img :src="getLogoPath(item)" alt="Logo" class="logo-image" />
             </div>
           </div>
@@ -123,7 +122,7 @@
     width: auto;
     height: 40px;
     /* Styles pour l'icône en noir et blanc par défaut */
-    filter: grayscale(90%);
+    filter: grayscale(50%);
     transition: filter 0.2s;
     display: flex;
     align-items: center;

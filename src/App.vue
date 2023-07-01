@@ -1,16 +1,28 @@
 <template>
   <div id="app">
-    <HeaderComponent txt="Sedra Rabe" />
-    <HomeComponent />
-    <BannerComponent />
-    <HomeComponent />
-    <DescriptionComponent />
-    <BannerProjectComponent />
-    <ProjectComponent />
-    <div class="up" @click="scrollToTop" id="upButton" v-wave="{ color: 'blue' }">
+    <div class="lottie_container">
+      <div id="lottie" ref="lottieContainer">
+    </div>
+  </div>
+    <div class="main-container" >
+    <HeaderComponent txt="Sedra Rabe" @load="handleComponentLoad"/>
+    <HomeComponent @load="handleComponentLoad" />
+    <BannerComponent @load="handleComponentLoad" />
+    <DescriptionComponent @load="handleComponentLoad" />
+    <BannerProjectComponent @load="handleComponentLoad" />
+    <ProjectComponent @load="handleComponentLoad" />
+    <ContactComponent @load="handleComponentLoad" />
+    <div
+      class="up"
+      @click="scrollToTop"
+      id="upButton"
+      v-wave="{ color: 'blue' }"
+      ref="upButton"
+    >
       <img src="@/assets/up.svg" alt="" id="arrow" />
     </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -19,7 +31,10 @@ import HomeComponent from './components/Content/HomeComponent.vue';
 import BannerComponent from './components/Content/BannerComponent.vue';
 import DescriptionComponent from './components/Content/DescriptionComponent.vue';
 import BannerProjectComponent from './components/Content/BannerProjectComponent.vue';
-import ProjectComponent from './components/Content/ProjectComponent.vue'
+import ContactComponent from './components/Content/ContactComponent.vue';
+import ProjectComponent from './components/Content/ProjectComponent.vue';
+import lottie from 'lottie-web';
+
 export default {
   name: 'App',
   components: {
@@ -28,9 +43,40 @@ export default {
     BannerComponent,
     DescriptionComponent,
     BannerProjectComponent,
-    ProjectComponent
+    ProjectComponent,
+    ContactComponent
+  },
+  data() {
+    return {
+      bannerIsRed: false,
+      bannerProjectIsRed: false,
+      componentLoadCount: 0,
+      loading: true,
+      totalComponents: 7, // Mettez à jour le nombre total de composants
+    };
+  },
+  mounted() {
+    document.addEventListener('DOMContentLoaded', this.handleDOMLoad);
+    lottie.loadAnimation({
+        container: this.$refs.lottieContainer,
+        path: 'src/assets/98282-loading.json',
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+      });
   },
   methods: {
+    handleDOMLoad() {
+      console.log('Tous les éléments de la page ont été chargés.');
+      this.loading=true;
+    },
+    handleComponentLoad() {
+      this.loading=true;
+      this.componentLoadCount++;
+      if (this.componentLoadCount === this.totalComponents) {
+        console.log('Tous les composants ont été chargés.');
+      }
+    },
     scrollToTop() {
       window.scrollTo({
         top: 0,
@@ -41,17 +87,33 @@ export default {
 }
 </script>
 
+
 <style>
-#app {
+
+.step {
+  height: 500px;
+  background-color: lightgray;
+  margin-bottom: 20px;
+}
+
+.banner-red {
+  background-color: red;
+}
+
+.banner-project-red {
+  background-color: red;
+}
+.main-container {
   font-family: 'Instrument Sans', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   display: grid;
-  grid-template-areas: "nav" "contenu" "banniere" "info" "banniere-project" "project";
+  grid-template-areas: "nav" "contenu" "banniere" "info" "banniere-project" "project" "contact";
   padding: 0;
   margin: 0;
+  
 }
 
 body {
@@ -107,4 +169,20 @@ body {
 #upButton:hover {
   transform: translateY(-5px); /* Ajout */
 }
+
+.lottie_container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100vh
+  }
+
+  #lottie {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+  }
 </style>

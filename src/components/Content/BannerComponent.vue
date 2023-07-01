@@ -96,7 +96,7 @@ export default {
   width: auto;
   height: 50px;
   /* Styles pour l'icône en noir et blanc par défaut */
-  filter: grayscale(100%);
+  filter: grayscale(50%);
   transition: filter 0.2s;
   display: flex;
   align-items: center;

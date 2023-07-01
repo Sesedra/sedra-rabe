@@ -10,12 +10,15 @@
   "dependencies": {
     "core-js": "^3.8.3",
     "element-plus": "^2.3.6",
+    "intersection-observer": "^0.12.2",
+    "lottie-web": "^5.12.2",
     "scrollreveal": "^4.0.9",
     "v-wave": "^1.5.1",
     "vue": "^3.2.13",
     "vue-animate-onscroll": "^1.0.8",
     "vue-carousel": "^0.18.0",
     "vue-scroll-reveal": "^2.1.0",
+    "vue-scrollama": "^2.0.6",
     "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {

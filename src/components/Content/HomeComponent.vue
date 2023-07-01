@@ -1,7 +1,7 @@
 <template>
   <div class="home-page" id="home">
     <div class="hero">
-      <p v-scroll-reveal.reset>Transformer les idées en produits web et mobiles innovants avec une touche de design</p>
+      <p v-scroll-reveal.reset>Transformer les idées en produits web et mobiles innovants avec une touche de <span id="design"> design </span></p>
       <div class="hero-buttons">
         <button id="contacter" v-wave="{ color: 'gray' }">Me contacter</button>
         <button id="cv" v-wave="{ color: 'gray' }" @click="downloadCV">
@@ -79,6 +79,12 @@ height: 189px;
 left: calc(50% - 804px/2);
 top: 397px;
     }
+
+    /* #design {
+      background: linear-gradient(45deg, #840dbb, #189def);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    } */
     
     #contacter, #cv{
         font-family: 'Instrument Sans';
