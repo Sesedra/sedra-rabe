@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .info-page {
   height: auto;
   grid-area: contact;
