@@ -7,14 +7,12 @@
             <h1>Parlons-en</h1>
           </div>
           <div class="hero-content">
-          <div class="card">
-            <div class="mail-header">
-              Votre mail
-              <input type="email" name="email" id="email">
-            </div>
-            <div class="mail-content">
-              <p>Votre message</p>
-              <textarea name="message" id="message"></textarea>
+          <div class="cards">
+            <div class="card">
+              <div class="card-logo">
+                <!-- <img :src="url('@/assets/react-seeklogo.com')" alt="Tool Icon" class="tool-icon" /> -->
+              </div>
+              <div class="card-text"></div>
             </div>
           </div>
         </div>

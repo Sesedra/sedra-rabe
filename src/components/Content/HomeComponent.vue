@@ -4,9 +4,12 @@
       <p>Transformer les idées en produits web et mobiles innovants avec une touche de <span id="design"> design </span></p>
       <div class="hero-buttons">
         <button id="contacter" @click="scrollToSection('#contact')" v-wave="{ color: 'gray' }">Me contacter</button>
-        <button id="cv" v-wave="{ color: 'gray' }" @click="downloadCV">
+        <button id="cv" v-wave="{ color: 'gray' }" @click="downloadCV" v-if="!loading">
           <img :src="require('@/assets/prime_download.svg')">
           Consulter mon CV
+        </button>
+        <button id="cv-cours" v-wave="{ color: 'red' }" disabled v-if="loading">
+          Patientez...
         </button>
       </div>
     </div>
@@ -22,9 +25,16 @@ import VueScrollTo from 'vue-scrollto';
 
 
 export default {
+  name: "HomeComponent",
+  data(){
+    return{
+      loading:false,
+    }
+  },
   methods: {
     async downloadCV() {
       try {
+        this.loading = true;
         const { default: fileURL } = await import('@/assets/sedra.pdf');
         const link = document.createElement('a');
         link.href = fileURL;
@@ -33,8 +43,10 @@ export default {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        this.loading = false;
       } catch (error) {
         console.error('Erreur lors du téléchargement du CV :', error);
+        this.loading = false;
       }
     },
     scrollToSection(sectionId) {
@@ -95,7 +107,7 @@ export default {
   -webkit-text-fill-color: transparent;
     } */
     
-    #contacter, #cv{
+    #contacter, #cv, #cv-cours{
         font-family: 'Instrument Sans';
         font-style: normal;
         font-weight: 500;
@@ -136,7 +148,7 @@ export default {
       box-shadow: 2px 1000px 1px #161616 inset;
     }
 
-    #cv {
+    #cv, #cv-cours {
         justify-content: center;
         align-items: center;
         border: 0;
@@ -157,7 +169,7 @@ export default {
         box-shadow: 2px 1000px 1px #161616 inset;
     }
 
-    #cv:hover {
+    #cv:hover, #cv-cours {
       cursor: pointer;
       margin: 0 1rem;
       padding: 1.25rem 3rem;
