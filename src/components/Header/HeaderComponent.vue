@@ -15,7 +15,7 @@
         </div>
         
       </div>
-      <h3 style="color: red;">⚠️Ce site est toujours en cours de construction, on y est presque 👷 </h3>
+      <h3 style="color: red;">⚠️Ce site est toujours en cours de construction, utilisez la version pour ordinateur, on y est presque 👷 </h3>
 
     </div>
   </div>
