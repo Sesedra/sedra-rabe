@@ -29,6 +29,9 @@
         </div>
       </div>
     </div>
+    <div class="fond">
+      <img :src="require('@/assets/Grids.svg')">
+    </div>
   </div>
 </template>
 
@@ -49,7 +52,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .info-page {
   height: auto;
   grid-area: contact;
@@ -92,7 +95,7 @@ h1 {
   margin: 0;
 }
 
-h3, a {
+h3 {
   font-family: "Instrument Sans";
   font-style: normal;
   color: #bfbfbf;
@@ -100,6 +103,17 @@ h3, a {
   font-size: 20px;
   padding: 0;
   margin: 0;
+}
+
+a {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  color: #dbdbdb;
+  font-weight: 400;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+  text-decoration:none
 }
 
 .header {
@@ -149,7 +163,7 @@ h3, a {
   justify-content: center;
   width: 50vh;
   justify-content: flex-start;
-  gap: 10%;
+  gap: 0;
 
 }
 
@@ -181,9 +195,27 @@ h3, a {
 
 img {
   height: 50px;
+  margin: 1vh;
 }
 
 .card-description {
   color: #e9e9e9;
 }
+
+.fond {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.fond img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
 </style>
