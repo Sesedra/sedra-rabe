@@ -1,28 +1,27 @@
 <template>
   <div id="app">
-    <div class="lottie_container">
-      <div id="lottie" ref="lottieContainer">
+    <div class="lottie-container" v-if="loading">
+      <div id="lottie" ref="lottieContainer"></div>
+    </div>
+    <div class="main-container" v-else>
+      <HeaderComponent txt="Sedra Rabe" @load="handleComponentLoad" />
+      <HomeComponent @load="handleComponentLoad" />
+      <BannerComponent @load="handleComponentLoad" />
+      <DescriptionComponent @load="handleComponentLoad" />
+      <BannerProjectComponent @load="handleComponentLoad" />
+      <ProjectComponent @load="handleComponentLoad" />
+      <ContactComponent @load="handleComponentLoad" />
+      <div
+        class="up"
+        @click="scrollToTop"
+        id="upButton"
+        v-wave="{ color: 'blue' }"
+        ref="upButton"
+      >
+        <img src="@/assets/up.svg" alt="" id="arrow" />
+      </div>
     </div>
   </div>
-    <div class="main-container" >
-    <HeaderComponent txt="Sedra Rabe" @load="handleComponentLoad"/>
-    <HomeComponent @load="handleComponentLoad" />
-    <BannerComponent @load="handleComponentLoad" />
-    <DescriptionComponent @load="handleComponentLoad" />
-    <BannerProjectComponent @load="handleComponentLoad" />
-    <ProjectComponent @load="handleComponentLoad" />
-    <ContactComponent @load="handleComponentLoad" />
-    <div
-      class="up"
-      @click="scrollToTop"
-      id="upButton"
-      v-wave="{ color: 'blue' }"
-      ref="upButton"
-    >
-      <img src="@/assets/up.svg" alt="" id="arrow" />
-    </div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -53,29 +52,48 @@ export default {
       componentLoadCount: 0,
       loading: true,
       totalComponents: 7, // Mettez à jour le nombre total de composants
+      imagesLoaded: 0,
+      totalImages: 0
     };
   },
   mounted() {
     document.addEventListener('DOMContentLoaded', this.handleDOMLoad);
+    this.loadImages();
     lottie.loadAnimation({
-        container: this.$refs.lottieContainer,
-        path: 'src/assets/98282-loading.json',
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-      });
+      container: this.$refs.lottieContainer,
+      path: 'https://assets2.lottiefiles.com/packages/lf20_x62chJ.json',
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      animationData: null
+    });
   },
   methods: {
     handleDOMLoad() {
       console.log('Tous les éléments de la page ont été chargés.');
-      this.loading=true;
+      this.loading = false;
     },
     handleComponentLoad() {
-      this.loading=true;
       this.componentLoadCount++;
-      if (this.componentLoadCount === this.totalComponents) {
-        console.log('Tous les composants ont été chargés.');
+      if (this.componentLoadCount === this.totalComponents && this.imagesLoaded === this.totalImages) {
+        this.loading = false;
+        console.log('Tous les composants et images ont été chargés.');
       }
+    },
+    loadImages() {
+      const images = document.querySelectorAll('img');
+      this.totalImages = images.length;
+      images.forEach(image => {
+        if (image.complete) {
+          this.imagesLoaded++;
+          this.handleComponentLoad();
+        } else {
+          image.addEventListener('load', () => {
+            this.imagesLoaded++;
+            this.handleComponentLoad();
+          });
+        }
+      });
     },
     scrollToTop() {
       window.scrollTo({
@@ -84,7 +102,7 @@ export default {
       });
     }
   }
-}
+};
 </script>
 
 
@@ -170,19 +188,16 @@ body {
   transform: translateY(-5px); /* Ajout */
 }
 
-.lottie_container {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    width: 100vh
-  }
+.lottie-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
 
-  #lottie {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    height: 200px;
-  }
+#lottie {
+  width: 50%;
+  height: auto;
+}
 </style>
