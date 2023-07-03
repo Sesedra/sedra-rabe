@@ -3,88 +3,90 @@
     <div class="hero" id="projets">
       <div class="header">
         <h3 style="color: red;"> ⚠️ Travaux en cours ⚠️ </h3>
-
         <h1>Mes projets</h1>
       </div>
-      <div class="hero-content" height>
-
-        <div class="cards" v-for="card in cards" :key="card.title">
-          <div class="card-left">
+      
+      <div class="slide-container">
+        <el-carousel :interval="5000" arrow="always" height="500px">
+          <el-carousel-item v-for="card in cards" :key="card.title">
             <div class="card-content">
-              <div class="card-logo">
-                <img :src="card.logo" alt="Logo" class="logo-image" />
+              <div class="card-left" :style="{ backgroundImage: `url(${card.backgroundImage})` }">
+                <div class="card-left-content">
+                  <div class="card-logo">
+                    <img :src="card.logo" alt="Logo" class="logo-image" />
+                  </div>
+                  <div class="card-little-title">{{ card.littleTitle }}</div>
+                  <div class="card-little-description">{{ card.littleDescription }}</div>
+                </div>
               </div>
-              <div class="card-little-title">{{ card.littleTitle }}</div>
-              <div class="card-little-description">{{ card.littleDescription }}</div>
+              <div class="card-right">
+                <div class="card-right-content">
+                  <div class="card-logo">
+                    <img :src="card.logo" alt="Logo" class="logo-image" />
+                  </div>
+                  <span class="card-title">Description</span>
+                  <div class="card-description">{{ card.description }}</div>
+                  <span class="card-title">Outils</span>
+                  <ul class="list-outils">
+                    <li v-for="tool in card.tools" :key="tool">
+                      <img :src="getToolIconPath(tool)" alt="Tool Icon" class="tool-icon" />
+                    </li>
+                  </ul>
+                  <div class="link-container">
+                    <a :href="card.projectLink" class="card-title">Voir le projet</a>
+                    <img src="@/assets/link.svg" alt="Link Icon" class="link-icon" />
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div :key="card.title" class="card-right">
-            <div class="card-right-content">
-              <div class="card-logo">
-                <img :src="card.logo" alt="Logo" class="logo-image" />
-              </div>
-              <span class="card-title">Description</span>
-              <div class="card-description">{{ card.description }}</div>
-              <span class="card-title">Outils</span>
-              <ul class="list-outils">
-                <li v-for="tool in card.tools" :key="tool">
-                  <img :src="getToolIconPath(tool)" alt="Tool Icon" class="tool-icon" />
-                </li>
-              </ul>
-              <div class="link-container">
-                <a :href="card.projectLink" class="card-title">Voir le projet</a>
-                <img src="@/assets/link.svg" alt="Link Icon" class="link-icon" />
-              </div>
-            </div>
-          </div>
-        </div>
+          </el-carousel-item>
+        </el-carousel>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'ProjectComponent',
-  components: {
-  },
+  components: {},
   data() {
     return {
       cards: [
         {
           title: 'Recycleo',
           logo: require('@/assets/recycleo.svg'),
+          backgroundImage: require('@/assets/recycleo-img.png'),
           littleTitle: 'Recycleo',
           littleDescription: 'Réalisé avec Figma et Adobe Photoshop - Dec 2022',
           description:
-            'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
+            'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gérer et inciter les gens à recycler davantage.',
           tools: ['Figma', 'Laravel'],
           projectLink: 'https://example.com/recycleo',
         },
-
-        // {
-        //   title: 'tysynday',
-        //   logo: require('@/assets/tysynday.svg'),
-        //   littleTitle: 'Tysynday',
-        //   littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
-        //   description:
-        //     'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
-        //   tools: ['Figma', 'Laravel'],
-        //   projectLink: 'https://example.com/recycleo',
-        // },
-
-        // {
-        //   title: 'Rakoto.dev',
-        //   logo: require('@/assets/Rakoto.dev.svg'),
-        //   littleTitle: 'Rakoto.dev',
-        //   littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
-        //   description:
-        //     'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gerer et inciter les gens à plus recycler',
-        //   tools: ['Figma', 'Laravel'],
-        //   projectLink: 'https://example.com/recycleo',
-        // },
-        // Ajoutez d'autres objets de carte si nécessaire
+        {
+          title: 'tysynday',
+          logo: require('@/assets/tysynday.svg'),
+          backgroundImage: require('@/assets/tysynday.png'),
+          littleTitle: 'Tysynday',
+          littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
+          description:
+            'Tysynday est un projet réalisé avec Angular-ReactNative et Nodejs pour créer une application multiplateforme.',
+          tools: ['Angular', 'React Native', 'Node.js'],
+          projectLink: 'https://example.com/tysynday',
+        },
+        {
+          title: 'Rakoto.dev',
+          logo: require('@/assets/Rakoto.dev.svg'),
+          backgroundImage: require('@/assets/recycleo-img.png'),
+          littleTitle: 'Rakoto.dev',
+          littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
+          description:
+            'Rakoto.dev est mon site personnel réalisé avec Angular et Node.js pour présenter mes projets et partager des articles techniques.',
+          tools: ['Angular', 'Node.js'],
+          projectLink: 'https://example.com/rakoto-dev',
+        },
+        // Add other card objects if needed
       ],
     };
   },
@@ -124,6 +126,8 @@ export default {
           return require('@/assets/mongodb-seeklogo.com.svg');
         case 'Ionic':
           return require('@/assets/ionic-seeklogo.com.svg');
+        case 'Angular':
+          return require('@/assets/ionic-seeklogo.com.svg');
         // Ajoutez d'autres cas pour les autres outils
         default:
           return '';
@@ -135,27 +139,10 @@ export default {
 
 <style scoped>
 .info-page {
-  height: auto;
+  height: 90vh;
   grid-area: project;
   margin-top: 5%;
   margin-bottom: 5%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 2rem;
-}
-
-h1 {
-  font-size: 4rem;
-  margin-bottom: 2rem;
 }
 
 h1 {
@@ -174,41 +161,42 @@ h1 {
   margin: 0;
 }
 
-.header {
+.hero {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 90px;
 }
 
-.cards {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  width: 90%;
-  padding-bottom: 20px;
-  height: 400px;
+.slide-container {
+  margin-top: 10vh;
+  background-color: aqua;
+  width: 80%;
+  height: 500px;
 }
 
-.hero-content {
-  padding-top: 50px;
-  padding-bottom: 50px;
+.el-carousel__item h3 {
+  color: #475669;
+  opacity: 0.75;
+  line-height: 500px;
+  margin: 0;
+  text-align: center;
+}
+.el-carousel__item {
+  color: #a2ff0d; 
+  background-color: #8960fa;
+  margin: 0;
+  text-align: center;
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 500px;
 }
+
 
 .card-left {
   color: #bfbfbf;
-  width: 50%;
-  height: 400px;
+  width: 66.66%;
+  height: 500px;
   border: solid 1.7px gray;
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
     url('@/assets/recycleo-img.png');
@@ -224,8 +212,8 @@ h1 {
 
 .card-right {
   color: #bfbfbf;
-  width: 25%;
-  height: 400px;
+  width:33.33%;
+  height: 500px;
   border: solid 1.7px transparent;
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
     linear-gradient(145deg, #c4c4c4, #161616);
@@ -239,14 +227,22 @@ h1 {
 
 .card-content {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  width: 100%;
+}
+
+.card-right-content {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
   margin: 30px;
+  justify-content: space-between;
   gap: 20px;
 }
-
-.card-right-content {
+.card-left-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -318,5 +314,8 @@ a.card-title {
   
 }
 
+.card-right .card-right-content .card-logo {
+  filter: grayscale(0%);
+}
 
 </style>
