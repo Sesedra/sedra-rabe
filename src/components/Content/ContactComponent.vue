@@ -2,7 +2,7 @@
   <div class="info-page">
     <div class="hero" id="contact">
       <div class="header">
-        <h3 style="color: red">⚠️ Travaux en cours ⚠️</h3>
+        <!-- <h3 style="color: red">⚠️ Travaux en cours ⚠️</h3> -->
         <h3>Des idées de projet?</h3>
         <h1>Parlons-en</h1>
       </div>
@@ -54,10 +54,10 @@ export default {
 
 <style scoped>
 .info-page {
-  height: auto;
+  height: 90vh;
   grid-area: contact;
   margin-top: 5%;
-  margin-bottom: 5%;
+  overflow: hidden;
 }
 
 .hero {
@@ -151,7 +151,27 @@ a {
   background-origin: border-box;
   background-clip: content-box, border-box;
   box-shadow: 0px -700px 1000px 1px #242424 inset;
-  transition: box-shadow 0.2s ease-in-out;
+  transition: 0.5s ease-in-out;
+
+}
+
+.social-button:hover {
+  color: #bfbfbf;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  border: solid 1.7px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(145deg, #c4c4c4, #c5c5c5);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 0px -700px 1000px 1px #242424 inset;
+  transition: 0.5s ease-in-out;
+
 
 }
 
@@ -176,7 +196,7 @@ a {
   justify-content: center;
   width: 100%;
   justify-content: flex-start;
-  gap: 1vh;
+  gap: 3vh;
 }
 
 .card-content {
@@ -214,7 +234,7 @@ img {
   object-fit: cover;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -10px;
   z-index: -1;
 }
 
