@@ -6,6 +6,7 @@
         <h1>Mes projets</h1>
       </div>
       
+      
       <div class="slide-container">
         <el-carousel :interval="5000" arrow="always" height="500px">
           <el-carousel-item v-for="card in cards" :key="card.title">
@@ -54,6 +55,17 @@ export default {
     return {
       cards: [
         {
+          title: 'Fanoron-telo: A malagasy board game',
+          logo: require('@/assets/logo-fanorona.png'),
+          backgroundImage: require('@/assets/fanorona.png'),
+          littleTitle: 'Fanorontelo',
+          littleDescription: 'Front réalisé avec ThreeJs - Juillet 2022',
+          description:
+            "It's a game between 2 players, the first player to align up 3 pawns win. The game board is initially empty, the players laying down their pawns one by one, then moving them from one intersection to another in an attempt to form an alignment.",
+          tools: ['ThreeJs'],
+          projectLink: 'https://github.com/Sesedra/Fanorona-GASY-BOARD-GAME',
+        },
+        {
           title: 'Recycleo',
           logo: require('@/assets/recycleo.svg'),
           backgroundImage: require('@/assets/recycleo-img.png'),
@@ -62,7 +74,7 @@ export default {
           description:
             'Recycleo est un concept réalisé avec Figma, pour une application mobile qui aide à gérer et inciter les gens à recycler davantage.',
           tools: ['Figma', 'Laravel'],
-          projectLink: 'https://example.com/recycleo',
+          projectLink: 'https://www.behance.net/gallery/160002455/Recycleo-Des-actions-plus-responsables',
         },
         {
           title: 'tysynday',
@@ -72,19 +84,52 @@ export default {
           littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
           description:
             'Tysynday est un projet réalisé avec Angular-ReactNative et Nodejs pour créer une application multiplateforme.',
-          tools: ['Angular', 'React Native', 'Node.js'],
+          tools: ['Angular', 'React Native', 'NodeJs'],
+          projectLink: 'https://github.com/Momot17/ty-sy-nday-2023',
+        },
+        {
+          title: 'Atoovt',
+          logo: require('@/assets/AtooVt.png'),
+          backgroundImage: require('@/assets/atoo.png'),
+          littleTitle: 'Atoovt',
+          littleDescription: 'Réalisé avec Vue3, Laravel, Ionic  - Fevrier 2023',
+          description:
+            'Atoovt est un plateforme web qui permet de gerer tout le personnel, les achats-ventes, la facturation au sein d un groupe de sociétés importateurs de moto et voiture',
+          tools: ['Ionic', 'VueJs', 'Laravel'],
           projectLink: 'https://example.com/tysynday',
         },
         {
-          title: 'Rakoto.dev',
-          logo: require('@/assets/Rakoto.dev.svg'),
-          backgroundImage: require('@/assets/recycleo-img.png'),
-          littleTitle: 'Rakoto.dev',
-          littleDescription: 'Réalisé avec Angular-ReactNative et Nodejs - Jan 2023',
+          title: 'Ezara',
+          logo: require('@/assets/ezara.svg'),
+          backgroundImage: require('@/assets/ezaraa.png'),
+          littleTitle: 'sedra-rabe.me',
+          littleDescription: 'Maquette réalisé avec Figma - Codé avec Vue3',
           description:
-            'Rakoto.dev est mon site personnel réalisé avec Angular et Node.js pour présenter mes projets et partager des articles techniques.',
-          tools: ['Angular', 'Node.js'],
-          projectLink: 'https://example.com/rakoto-dev',
+            'ezara est un plateform de formation en ligne pour les etudiants et les professionnels',
+          tools: ['Figma', 'VueJs'],
+          projectLink: 'https://www.figma.com/file/y4AM3HS0HyR3MvHmlG5P5T/hackahton?type=design&node-id=37%3A140&mode=design&t=Q7VuXumTNuGX8f5A-1',
+        },
+        {
+          title: 'sedra-rabe.me - Portfolio',
+          logo: require('@/assets/favicon.png'),
+          backgroundImage: require('@/assets/345834626_189694123977920_5813998025762825325_n.png'),
+          littleTitle: 'sedra-rabe.me',
+          littleDescription: 'Maquette réalisé avec Figma - Codé avec Vue3',
+          description:
+            'Ce portfolio est destiné à présenter mes projets, mes compétences et mes expériences. Codé avec Vue',
+          tools: ['Figma', 'VueJs'],
+          projectLink: 'sedra-rabe.me',
+        },
+        {
+          title: 'Junnot Mahazara',
+          logo: require('@/assets/junnot.svg'),
+          backgroundImage: require('@/assets/junnot.png'),
+          littleTitle: 'Junnot Mahazara - Photographer',
+          littleDescription: 'Identité visuelle realisée avec Figma - Mockup fait avec Adobe Photoshop',
+          description:
+            "Conception d'une carte de visite et du logo en question pour un ami photographe, Ceci est un concept. #logoConcept #photographer #BusinessCard", 
+          tools: ['Figma', 'Photoshop'],
+          projectLink: 'https://www.behance.net/gallery/164073877/Business-Card-Photographer-Junnot-Mahazara',
         },
         // Add other card objects if needed
       ],
@@ -127,7 +172,17 @@ export default {
         case 'Ionic':
           return require('@/assets/ionic-seeklogo.com.svg');
         case 'Angular':
-          return require('@/assets/ionic-seeklogo.com.svg');
+          return require('@/assets/angular.svg');
+        case 'Photoshop':
+          return require('@/assets/photoshop.svg');
+        case 'ThreeJs':
+          return require('@/assets/three.svg');
+        case 'NodeJs':
+          return require('@/assets/nodejs-seeklogo.com.svg');
+        case 'React Native':
+          return require('@/assets/react-seeklogo.com.svg');
+          case 'VueJs':
+          return require('@/assets/vuejs-seeklogo.com.svg');
         // Ajoutez d'autres cas pour les autres outils
         default:
           return '';
@@ -171,9 +226,9 @@ h1 {
 
 .slide-container {
   margin-top: 10vh;
-  background-color: aqua;
   width: 80%;
   height: 500px;
+  overflow: visible;
 }
 
 .el-carousel__item h3 {
@@ -184,18 +239,17 @@ h1 {
   text-align: center;
 }
 .el-carousel__item {
-  color: #a2ff0d; 
-  background-color: #8960fa;
   margin: 0;
   text-align: center;
   width: 100%;
+  overflow: visible;
   height: 500px;
 }
 
 
 .card-left {
   color: #bfbfbf;
-  width: 66.66%;
+  width: 65%;
   height: 500px;
   border: solid 1.7px gray;
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
@@ -212,7 +266,7 @@ h1 {
 
 .card-right {
   color: #bfbfbf;
-  width:33.33%;
+  width:30%;
   height: 500px;
   border: solid 1.7px transparent;
   background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
@@ -231,6 +285,7 @@ h1 {
   align-items: flex-start;
   text-align: left;
   width: 100%;
+  gap: 5%
 }
 
 .card-right-content {
