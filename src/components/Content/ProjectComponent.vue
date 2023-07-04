@@ -2,7 +2,7 @@
   <div class="info-page">
     <div class="hero" id="projets">
       <div class="header">
-        <h3 style="color: red;"> ⚠️ Travaux en cours ⚠️ </h3>
+        <!-- <h3 style="color: red;"> ⚠️ Travaux en cours ⚠️ </h3> -->
         <h1>Mes projets</h1>
       </div>
       
