@@ -3,7 +3,7 @@
     <div class="lottie-container" v-if="loading">
       <div id="lottie" ref="lottieContainer"></div>
     </div>
-    <div class="main-container" v-else>
+    <div class="main-container" :class="{ 'hidden': loading }">
       <HeaderComponent txt="Sedra Rabe" @load="handleComponentLoad" />
       <HomeComponent @load="handleComponentLoad" />
       <BannerComponent @load="handleComponentLoad" />
@@ -67,16 +67,17 @@ export default {
       autoplay: true,
       animationData: null
     });
+    setTimeout(() => {
+      this.loading = false;
+    }, 10000);
   },
   methods: {
     handleDOMLoad() {
       console.log('Tous les éléments de la page ont été chargés.');
-      this.loading = false;
     },
     handleComponentLoad() {
       this.componentLoadCount++;
       if (this.componentLoadCount === this.totalComponents && this.imagesLoaded === this.totalImages) {
-        this.loading = false;
         console.log('Tous les composants et images ont été chargés.');
       }
     },
@@ -197,7 +198,11 @@ body {
 }
 
 #lottie {
-  width: 50%;
+  width: 30%;
   height: auto;
+}
+
+.hidden {
+  display: none;
 }
 </style>
